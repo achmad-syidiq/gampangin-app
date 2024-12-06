@@ -14,5 +14,4 @@ Router.get('/', createCategoryService)
 Router.put('/:id', updateCategoryService)
 Router.delete('/:id', deleteCategoryService)
 
-
-export default Router;a
+export default Router;
