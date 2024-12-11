@@ -10,7 +10,7 @@ import {
 const Router = express.Router();
 
 Router.get('/', getCategories)
-Router.get('/', createCategory)
+Router.post('/', createCategory)
 Router.put('/:id', updateCategory)
 Router.delete('/:id', deleteCategory)
 
