@@ -2,70 +2,45 @@ import React from "react";
 import ProductTable from "../Fragments/ProductTable";
 import ProductCardStats from "../Fragments/ProductCardStats";
 
-const ProductLayer = () => {
+const ProductLayer = ({ products, onView, onEdit, onDelete }) => {
+  // Statistic properties
+  const totalProducts = products.length;
+  const totalActiveProducts = products.filter((p) => p.status === "active").length;
+  const totalInactiveProducts = products.filter((p) => p.status === "inactive").length;
+
+  // Filter Category properties
+  const uniqueCategories = [...new Set(products.map((product) => product.category))];
+  const totalCategories = uniqueCategories.length;
+
   const stats = [
     {
       title: "Total Product",
-      value: "100",
+      value: totalProducts,
       icon: "gridicons:multiple-users",
       bgColor: "bg-gradient-start-1",
       iconColor: "bg-cyan",
     },
     {
-      title: "Total Subscription",
-      value: "15,000",
+      title: "Category Product",
+      value: totalCategories,
       icon: "fa-solid:award",
       bgColor: "bg-gradient-start-2",
       iconColor: "bg-purple",
     },
     {
       title: "Product Active",
-      value: "50",
+      value: totalActiveProducts,
       icon: "solar:wallet-bold",
       bgColor: "bg-gradient-start-4",
       iconColor: "bg-success-main",
     },
     {
       title: "Product In-Active",
-      value: "15",
+      value: totalInactiveProducts,
       icon: "fa6-solid:file-invoice-dollar",
       bgColor: "bg-gradient-start-5",
       iconColor: "bg-red",
     },
-  ];
-
-  const products = [
-    {
-      id: 1,
-      name: "Kathryn Murphy",
-      sku: "#526534",
-      category: "Electronics",
-      qty: 91,
-      modal: "Rp1.500.000",
-      price: "Rp2.500.000",
-      status: "active",
-    },
-    {
-      id: 2,
-      name: "Kathryn Murphy",
-      sku: "#526534",
-      category: "Electronics",
-      qty: 91,
-      modal: "Rp1.500.000",
-      price: "Rp2.500.000",
-      status: "active",
-    },
-    {
-      id: 3,
-      name: "Kathryn Murphy",
-      sku: "#526534",
-      category: "Electronics",
-      qty: 91,
-      modal: "Rp1.500.000",
-      price: "Rp2.500.000",
-      status: "active",
-    },
-    // Add more products here
   ];
 
   return (
@@ -79,11 +54,13 @@ const ProductLayer = () => {
       </div>
       <div className="col-xl-12">
         <div className="card basic-data-table">
-          {/* <div className="card-header">
-            <h5 className="card-title mb-0">Default Data Tables</h5>
-          </div> */}
           <div className="card-body">
-            <ProductTable products={products} />
+            <ProductTable 
+              products={products} 
+              onView={onView} 
+              onEdit={onEdit} 
+              onDelete={onDelete} 
+            />
           </div>
         </div>
       </div>
