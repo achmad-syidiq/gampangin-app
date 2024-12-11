@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
@@ -7,26 +7,26 @@ const productSchema = new Schema(
   {
     name: {
       type: String,
-      required: [true, 'Nama produk harus diisi'],
+      required: [true, "Nama produk harus diisi"],
     },
     sku: {
       type: String,
-      required: [true, 'SKU harus diisi'],
+      required: [true, "SKU harus diisi"],
       unique: true,
     },
     category: {
-      type: String,
-      required: [true, 'Kategori harus diisi'],
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
     },
     status: {
       type: String,
-      enum: ['active', 'in-active'],
-      default: 'active',
+      enum: ["active", "in-active"],
+      default: "active",
     },
     qty: {
       type: Number,
       required: true,
-      min: [0, 'Quantity tidak boleh kurang dari 0'],
+      min: [0, "Quantity tidak boleh kurang dari 0"],
     },
     modal: {
       type: Number,
@@ -43,6 +43,6 @@ const productSchema = new Schema(
 );
 
 // Create Product model based on the schema
-const Product = model('Product', productSchema);
+const Product = model("Product", productSchema);
 
 export default Product;
