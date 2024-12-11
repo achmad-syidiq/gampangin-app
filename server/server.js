@@ -17,5 +17,5 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.use("/api/v1/category", categoryRoutes)
+app.use("/api/v1/categories", categoryRoutes)
 app.use("/api/v1/products", productRoutes)
