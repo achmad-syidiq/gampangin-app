@@ -121,6 +121,14 @@ const MasterLayout = ({ children }) => {
                 <span>Products</span>
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/purchases" className={(navData) =>
+                navData.isActive ? "active-page" : ""
+              }>
+                <Icon icon="solar:home-smile-angle-outline" className="menu-icon" />
+                <span>Pembelian</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
       </aside>

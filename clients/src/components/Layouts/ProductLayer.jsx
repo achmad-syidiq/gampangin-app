@@ -6,7 +6,7 @@ const ProductLayer = ({ products, onView, onEdit, onDelete }) => {
   // Statistic properties
   const totalProducts = products.length;
   const totalActiveProducts = products.filter((p) => p.status === "active").length;
-  const totalInactiveProducts = products.filter((p) => p.status === "inactive").length;
+  const totalInactiveProducts = products.filter((p) => p.status === "in-active").length;
 
   // Filter Category properties
   const uniqueCategories = [...new Set(products.map((product) => product.category))];
