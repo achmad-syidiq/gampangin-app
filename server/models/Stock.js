@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 
 const StockSchema = new mongoose.Schema({
-    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-    quantity: { type: Number, required: true }
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+    quantity: { type: Number, required: true },
+    lastUpdated: { type: Date, default: Date.now }
 });
 
 StockSchema.methods.minStockAlert = function () {
