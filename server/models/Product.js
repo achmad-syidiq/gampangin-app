@@ -1,48 +1,15 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const { Schema, model } = mongoose;
+const ProductSchema = mongoose.Schema({
+  name: { type: String, required: true },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
+  price: { type: Number, required: true },
+  sku: { type: String, unique: true, required: true },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
+});
 
-// Define schema for the Product model
-const productSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: [true, "Nama produk harus diisi"],
-    },
-    sku: {
-      type: String,
-      required: [true, "SKU harus diisi"],
-      unique: true,
-    },
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-    },
-    status: {
-      type: String,
-      enum: ["active", "in-active"],
-      default: "active",
-    },
-    qty: {
-      type: Number,
-      required: true,
-      min: [0, "Quantity tidak boleh kurang dari 0"],
-    },
-    modal: {
-      type: Number,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-  },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt
-  }
-);
+const Product = mongoose.model('Product', ProductSchema);
 
-// Create Product model based on the schema
-const Product = model("Product", productSchema);
 
-export default Product;
+export default Product

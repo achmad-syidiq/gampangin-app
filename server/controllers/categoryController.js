@@ -24,14 +24,12 @@ export const createCategory = async (req, res) => {
 export const updateCategory = async (req, res) => {
     const { id: _id } = req.params;
     try {
-        const name = new Category(req.body);
-        const updateCategory = await Category.findByIdAndUpdate(id, {name}, {new: true});
+        const updateCategory = await Category.findByIdAndUpdate(_id, req.body, { new: true });
         res.json(updateCategory)
     } catch (error) {
         res.status(400).send({ message: 'Failed updating category'})
     }
 }
-
 
 export const deleteCategory = async (req, res) => {
     const { id: _id } = req.params;
