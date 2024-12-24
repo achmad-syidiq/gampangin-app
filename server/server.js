@@ -4,9 +4,8 @@ import cors from "cors";
 import CONNECTION_DB from "./config/connection.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-import purchaseRoutes from "./routes/purchaseRoutes.js";
-import saleRoutes from "./routes/saleRoutes.js";
-import stockRoutes from "./routes/stockRoutes.js";
+import posRoutes from "./routes/posRoutes.js";
+
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -22,6 +21,4 @@ app.listen(PORT, () => {
 
 app.use("/api/v1/categories", categoryRoutes)
 app.use("/api/v1/products", productRoutes)
-app.use("/api/v1/purchases", purchaseRoutes)
-app.use("/api/v1/sales", saleRoutes)
-app.use("/api/v1/stocks", stockRoutes)
+app.use("/api/v1/pos", posRoutes)
