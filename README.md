@@ -34,14 +34,10 @@ Make sure you have **Node** (version: `12.14.0` or above) installed in your syst
 npm install
 
 // Run client with concurrently
-npm run dev 
+npm run dev
 
 // Run server with concurrently
 npm start
 
-// Server runs on http://localhost:5000 and client on http://localhost:3000
+// Server runs on http://localhost:5000 and client on http://localhost:5173
 ```
-
-## Upcomings
-- Categories Pages
-- Supplier Pages
